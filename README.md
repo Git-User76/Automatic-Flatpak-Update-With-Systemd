@@ -1,4 +1,7 @@
-# Auto-flatpak-update - systemd Service and Timer
+# Flatpak-auto-update 
+These are `service` and `timer` systemd unit files to schedule daily updates for Flatpaks.
+
+<br>
 
 **1. Pull repo to download files**
 - flatpak-auto-update.service
