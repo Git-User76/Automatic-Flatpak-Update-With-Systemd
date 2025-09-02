@@ -1,8 +1,23 @@
+# ~/.config/systemd/user/flatpak-auto-update.service
+# Systemd service unit for automated flatpak updates
 [Unit]
 Description=Update user Flatpak apps
 Wants=network-online.target
 After=network-online.target
 
+# Optional: Automatically send failure notification if service fails
+# OnFailure=telegram-notify@%n.service
+
 [Service]
 Type=oneshot
+
+# Execute the flatpak update command
 ExecStart=/usr/bin/flatpak update --noninteractive -y
+
+# Restart policy for network failures
+Restart=on-failure
+RestartSec=5min
+RestartPreventExitStatus=0
+
+# Optional: Automatically send success notification
+# ExecStartPost=%h/.local/bin/telegram-notifier %n
