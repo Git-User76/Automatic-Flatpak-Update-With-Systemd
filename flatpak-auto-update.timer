@@ -2,7 +2,6 @@
 # Systemd timer for automated daily flatpak update
 [Unit]
 Description=Run daily Flatpak updates
-Requires=flatpak-auto-update.service
 
 [Timer]
 # Run daily
