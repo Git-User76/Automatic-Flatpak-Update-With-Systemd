@@ -7,8 +7,6 @@ Requires=flatpak-auto-update.service
 [Timer]
 # Run daily
 OnCalendar=daily
-# Also run 10 minutes after boot if a scheduled run was missed
-OnBootSec=10min
 # If the system was powered down when a backup should have run, run it when powered on
 Persistent=true
 # Randomize start time by up to 1 hour to avoid load spikes
