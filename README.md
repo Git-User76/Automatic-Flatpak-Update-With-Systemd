@@ -1,42 +1,46 @@
 # Flatpak-auto-update 
-These are `service` and `timer` systemd unit files to schedule daily updates for Flatpaks.
+
+Systemd user `service` and `timer` units for scheduling daily Flatpak updates.
 
 <br>
 
-**1. Pull repo to download files**
-- flatpak-auto-update.service
-- flatpak-auto-update.timer
-
-<br>
-
-**2. Create user-specific systemd directory (if does not exist)**
+## Installation
 ```shell
+# Download the unit files from this GitHub repo to the current directory
+wget https://raw.githubusercontent.com/Git-User76/Automatic-Flatpak-Update-With-Systemd/main/flatpak-auto-update.service
+wget https://raw.githubusercontent.com/Git-User76/Automatic-Flatpak-Update-With-Systemd/main/flatpak-auto-update.timer
+
+# Create the user-specific systemd directory (if it doesn't exist)
 mkdir -p ~/.config/systemd/user
-```
 
-<br>
+# Move the service and timer unit files to the user-specific systemd directory
+mv flatpak-auto-update.service ~/.config/systemd/user/
+mv flatpak-auto-update.timer ~/.config/systemd/user/
 
-**3. Copy or move the files to the new user-specific systemd location**
-```shell
-cp flatpak-auto-update.service ~/.config/systemd/user/
-cp flatpak-auto-update.timer ~/.config/systemd/user/
-```
-
-<br>
-
-**4. Reload systemd to implement changes**
-```shell
+# Reload user systemd to read the new unit files
 systemctl --user daemon-reload
-```
 
-<br>
-
-**5. Start and enable systemd unit**
-```shell
+# Start and enable timer
 systemctl --user enable --now flatpak-auto-update.timer
 ```
 
+---
 <br>
 
-# Done
-Flatpaks will auto-update daily after current user login.
+## Verify Installation
+```shell
+# Check timer status:
+systemctl --user status flatpak-auto-update.timer
+
+# List upcoming timer runs
+systemctl --user list-timers
+```
+
+---
+<br>
+
+## How It Works
+- The timer runs daily with a randomized delay of up to 1 hour.
+- Updates are performed non-interactively and only when the network is available. Missed updates (e.g., system was off) will run after the next boot.
+- Flatpaks will auto-update daily after current user login.
+- There is NO need for manually updating flatpaks or updating from the store.
