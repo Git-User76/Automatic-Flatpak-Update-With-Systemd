@@ -1,14 +1,14 @@
 # ~/.config/systemd/user/flatpak-auto-update.timer
-# Systemd timer for automated daily flatpak update
+# Timer unit for daily Flatpak updates
 [Unit]
 Description=Run daily Flatpak updates
 
 [Timer]
 # Run daily
 OnCalendar=daily
-# If the system was powered down when a backup should have run, run it when powered on
+# Run missed updates after system reboot (if system was down during a scheduled update)
 Persistent=true
-# Randomize start time by up to 1 hour to avoid load spikes
+# Add random delay up to 1 hour to avoid all systems updating at once
 RandomizedDelaySec=1h
 
 [Install]
