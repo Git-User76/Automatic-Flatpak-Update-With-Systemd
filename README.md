@@ -1,6 +1,6 @@
 # Flatpak-auto-update 
 
-Simple systemd user `service` and `timer` units for scheduling daily Flatpak updates.
+Simple systemd user `service` and `timer` units for scheduling daily Flatpak updates for the current user.
 
 ---
 <br>
