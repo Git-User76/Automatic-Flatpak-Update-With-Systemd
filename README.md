@@ -5,7 +5,7 @@ Simple systemd user `service` and `timer` units for scheduling daily Flatpak upd
 ---
 <br>
 
-## 🔧 Installation
+## Installation
 ```shell
 # Download the unit files from this GitHub repo to the current directory
 wget https://raw.githubusercontent.com/Git-User76/Automatic-Flatpak-Update-With-Systemd/main/flatpak-auto-update.service
@@ -28,7 +28,7 @@ systemctl --user enable --now flatpak-auto-update.timer
 ---
 <br>
 
-## ✅ Verify Installation
+## Verify Installation
 ```shell
 # Check timer status:
 systemctl --user status flatpak-auto-update.timer
@@ -40,7 +40,7 @@ systemctl --user list-timers
 ---
 <br>
 
-## ⚙️ How It Works
+## How It Works
 - The timer runs daily with a randomized delay of up to 1 hour.
 - Updates are performed non-interactively and only when the network is available. Missed updates (e.g., system was off) will run after the next boot.
 - Flatpaks will auto-update daily after current user login.
