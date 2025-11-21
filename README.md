@@ -2,7 +2,6 @@
 
 Simple systemd user `service` and `timer` units for scheduling daily Flatpak updates for the current user.
 
----
 <br>
 
 ## Installation
@@ -26,7 +25,6 @@ systemctl --user daemon-reload
 systemctl --user enable --now flatpak-auto-update.timer
 ```
 
----
 <br>
 
 ## Verify Installation
@@ -38,7 +36,6 @@ systemctl --user status flatpak-auto-update.timer
 systemctl --user list-timers
 ```
 
----
 <br>
 
 ## How It Works
