@@ -6,6 +6,7 @@ Simple systemd user `service` and `timer` units for scheduling daily Flatpak upd
 <br>
 
 ## Installation
+Run these commands as a regular user.
 ```shell
 # Download the unit files from this GitHub repo to the current directory
 wget https://raw.githubusercontent.com/Git-User76/Automatic-Flatpak-Update-With-Systemd/main/flatpak-auto-update.service
